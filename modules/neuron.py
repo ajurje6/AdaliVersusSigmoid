@@ -1,6 +1,5 @@
 from spikingjelly.activation_based.neuron import IFNode, LIFNode
 
-
 class IF(IFNode):
     def __init__(self, surrogate_function=None,v_threshold =1., tau=None):
         super().__init__(v_threshold=v_threshold, v_reset=None, surrogate_function=surrogate_function, detach_reset=False, step_mode='m',

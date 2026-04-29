@@ -10,11 +10,8 @@ def cal_firing_rate(s_seq: torch.Tensor):
     return fr
 
 def percentage_in_range(tensor, lower_bound, upper_bound):
-    # 统计在区间范围内的值的数量
     in_range_count = ((tensor >= lower_bound) & (tensor <= upper_bound)).sum().item()
-    # 总数量
     total_count = tensor.numel()
-    # 计算占比
     percentage = in_range_count / total_count * 100
     return round(percentage, 2)
 

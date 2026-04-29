@@ -5,8 +5,6 @@ from myutils.common import heaviside
 
 
 def adali_backward(grad_output: torch.Tensor, x: torch.Tensor, alpha: float, beta: float):
-    #边界已由handleConfig函数处理好
-    #根据边界和alpha, beta更新梯度
     left = AdaLiConfig['Vth'] - AdaLiConfig['Left'][0]
     right = AdaLiConfig['Vth'] + AdaLiConfig['Right'][0]
     grad = torch.ones_like(x)
@@ -35,7 +33,6 @@ class AdaLi(nn.Module):
 
     def forward(self, x: torch.Tensor):
         return adali.apply(x, self.alpha, self.beta)
-
 
 
 if __name__ == '__main__':

@@ -26,11 +26,8 @@ class Sigmoid(nn.Module):
         AdaLiConfig['Left'][0]=float('inf')
         AdaLiConfig['Right'][0] = float('inf')
 
-
     def forward(self, x: torch.Tensor):
         return sigmoid.apply(x, self.alpha)
-
-
 
 if __name__ == '__main__':
     data = torch.rand(3,3).to("cuda:0").requires_grad_(True)
